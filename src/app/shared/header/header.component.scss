@@ -1,0 +1,121 @@
+.home-header-bg-color {
+    background-color: #444444;
+    color: #ffffff;
+  }
+  .header-nav-search {
+    background: #525252;
+    border: 5px;
+  }
+  .home-page .search-color {
+    color: #adadb0;
+    border-color: red;
+  }
+  header nav ul .nav-item a,
+  header nav div > h6 {
+    color: rgb(223, 223, 223);
+    font-weight: 700;
+    font-size: 12px;
+    font-family: roboto;
+    cursor: pointer;
+  }
+  header nav ul .nav-item a:hover {
+    color: #fab318;
+  }
+  header nav div > h5 {
+    color: rgb(223, 223, 223);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  header nav div > h6 {
+    font-weight: 400;
+  }
+  header nav div > img {
+    border-radius: 5px;
+  }
+  
+  .wrapper-dropdown-2 {
+    /* Size and position */
+    position: relative; /* Enable absolute positioning for children and pseudo elements */
+    padding: 10px 15px;
+  
+    /* Styles */
+    cursor: pointer;
+    outline: none;
+  }
+  .wrapper-dropdown-2-test:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: grey transparent;
+  }
+  .wrapper-dropdown-2 .dropdown {
+    /* Size & position */
+    position: absolute;
+    top: 126%;
+    left: -50px;
+    right: 0px;
+  
+    /* Styles */
+    background: #fff;
+    transition: all 0.3s ease-out;
+    list-style: none;
+    box-shadow: 0.6em 0.1em 6em -0.6em #ccc;
+    padding: 0px;
+  
+    /* Hiding */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .wrapper-dropdown-2 .dropdown li a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 8px;
+    transition: all 0.3s ease-out;
+  
+    /* Font size */
+    font-weight: 700;
+    font-size: 12px;
+  }
+  
+  .wrapper-dropdown-2 .dropdown li:nth-child(1) a {
+    border-left-color: #00aced;
+  }
+  
+  .wrapper-dropdown-2 .dropdown li:nth-child(2) a {
+    border-left-color: #4183c4;
+  }
+  
+  .wrapper-dropdown-2 .dropdown li:nth-child(3) a {
+    border-left-color: #3b5998;
+  }
+  
+  .wrapper-dropdown-2 .dropdown li i {
+    margin: 0px 10px;
+    color: inherit;
+    vertical-align: middle;
+  }
+  
+  /* Hover state */
+  
+  .wrapper-dropdown-2 .dropdown li:hover a {
+    color: grey;
+    background-color: #dddddd;
+  }
+  .wrapper-dropdown-2.active:after {
+    border-width: 0 6px 6px 6px;
+  }
+  
+  .wrapper-dropdown-2.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
