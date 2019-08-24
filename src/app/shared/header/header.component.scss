@@ -1,6 +1,8 @@
 .home-header-bg-color {
     background-color: #444444;
     color: #ffffff;
+    --background: var(--ion-color-primary);
+    --border-style: none;
   }
   .header-nav-search {
     background: #525252;

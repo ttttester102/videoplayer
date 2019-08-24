@@ -1,6 +1,8 @@
 {
   "name": "videoPlayer",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "149987eb"
 }

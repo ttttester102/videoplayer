@@ -1,8 +1,21 @@
-<ion-header class="d-block d-sm-none home-header-bg-color">
-  <ion-toolbar>
-    <ion-title>
-      <img src="/assets/logo/logo.png" />
-    </ion-title>
+<ion-header class="d-block d-sm-none" mode="ios">
+  <ion-toolbar class="home-header-bg-color">
+    <ion-row>
+      <ion-col size="3" no-padding>
+        <ion-buttons class="m-0">
+          <ion-button color="light" (click)="toggleBtn()">
+            <ion-icon ios="md-list" md="md-list"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col size="6" no-padding>
+        <ion-title class="text-center">
+          <img src="/assets/logo/logo.png" height="40"/>
+        </ion-title>
+      </ion-col>
+      <ion-col size="3">
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 <header class="d-none d-sm-block d-md-block home-page">
@@ -36,8 +49,7 @@
         </li>
       </ul>
       <div id="dd" class="wrapper-dropdown-2">
-        <a class="d-flex justify-content-center align-items-center curson-pointer"
-          data-toggle="dropdown">
+        <a class="d-flex justify-content-center align-items-center curson-pointer" data-toggle="dropdown">
           <img src="/assets/profile/package-lock.png" height="40" />
           <div class="d-flex ml-2 mr-2">
             <div class="flex-column justify-content-center">

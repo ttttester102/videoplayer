@@ -1,22 +1,104 @@
 <app-header></app-header>
 
-<ion-content>
-    <section class="sidebar-container">
-        <ul>
-            <li class="bottom-li-border"><i class="fa fa-home" aria-hidden="true"></i>Home</li>
-            <li class="bottom-li-border"><i class="fa fa-home" aria-hidden="true"></i>Home</li>
-            <li class="bottom-li-border"><i class="fa fa-home" aria-hidden="true"></i>Home</li>
-        </ul>
-    </section>
-    <section class="container-fluid red">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-    </section>
+<ion-content class="home-page-content-container">
+    <ion-grid [ngSwitch]="view_type">
+        <ion-row>
+            <ion-col size="12" no-padding>
+                <ion-item lines="none" no-padding class="home-page-list-item-container">
+                    <ion-buttons slot="end">
+                        <ion-button (click)="setViewType(GRID_VIEW)">
+                            <ion-icon ios="md-apps" md="md-apps" [color]="view_type === GRID_VIEW ? 'light' : 'medium'">
+                            </ion-icon>
+                        </ion-button>
+                        <ion-button (click)="setViewType(LIST_VIEW)">
+                            <ion-icon ios="md-menu" md="md-menu" [color]="view_type === LIST_VIEW ? 'light' : 'medium'">
+                            </ion-icon>
+                        </ion-button>
+                        <ion-button (click)="setViewType(PLAIN_VIEW)">
+                            <ion-icon ios="md-square" md="md-square"
+                                [color]="view_type === PLAIN_VIEW ? 'light' : 'medium'"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngSwitchCase="PLAIN_VIEW">
+            <ion-col size="12" no-padding>
+                <ion-slides pager="true" [options]="slideOpts" class="home-page-slider-container" #movieSlides
+                    (ionSlideDidChange)="onMovieSlideChange($event)"
+                    [ngStyle]="{ 'height': this.getSliderHeight()+'px' }">
+                    <ion-slide class="home-page-slide-container" *ngFor="let obj of images; index as i;">
+                        <div
+                            [class]="currentIndex === i ? 'home-page-active-img-container' : 'home-page-inactive-img-container'">
+                            <img [src]="obj" class="home-page-movie-banner">
+                            <div class="home-page-list-item-play-img-container font-50">
+                                <i class="fa fa-play-circle" aria-hidden="true"></i>
+                            </div>
+                            <div *ngIf="currentIndex === i" class="home-page-img-layer">
+                                <ion-item class="home-page-list-item-container home-page-movie-title">
+                                    <ion-label class="home-page-slide-text" no-padding>
+                                        SAAHO
+                                        <br>
+                                        <ion-label class="home-page-slide-sub-header-text">
+                                            2012|1hour 94minutes|154
+                                        </ion-label>
+                                    </ion-label>
+                                </ion-item>
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slides>
+                <ion-item class="home-page-list-item-container">
+                    <ion-label class="home-page-slide-text text-center">{{ currentIndex+1 }}/{{ images.length }}
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row *ngSwitchCase="LIST_VIEW">
+            <ion-col>
+                <ion-list lines="none" class="home-page-list-item-container">
+                    <ion-item class="home-page-list-item-container ion-padding-bottom" *ngFor="let obj of images;"
+                        no-padding>
+                        <div class="home-page-list-item-img-container m-0" slot="start">
+                            <img [src]="obj" class="home-page-list-item-img">
+                            <div class="home-page-list-item-play-img-container">
+                                <i class="fa fa-play-circle" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="home-page-list-item-body-container ion-padding-start">
+                            <ion-label>Lock Out</ion-label>
+                            <ion-label text-wrap class="home-page-slide-sub-header-text">2012|1hour 94minutes|154
+                            </ion-label>
+                            <ion-chip class="home-page-chip-container ion-padding-horizontal" no-padding>
+                                <ion-label color="primary">Thriller</ion-label>
+                            </ion-chip>
+                        </div>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+
+        <ion-row *ngSwitchCase="GRID_VIEW">
+            <ion-col size="12" no-padding>
+                <ion-row>
+                    <ion-col sizeXs="4" sizeMd="2" sizeSm="3" *ngFor="let obj of images;" no-padding>
+                        <ion-card no-padding class="home-page-card-container">
+                            <div class="home-page-card-img-container">
+                                <img [src]="obj" class="home-page-card-img">
+                                <div class="home-page-list-item-play-img-container">
+                                    <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <ion-card-header no-padding>
+                                <ion-card-title color="light" class="home-page-card-title">Lock Out</ion-card-title>
+                                <ion-card-subtitle color="light" class="home-page-card-sub-title m-0">2012|1hour
+                                    94minutes| 154</ion-card-subtitle>
+                            </ion-card-header>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

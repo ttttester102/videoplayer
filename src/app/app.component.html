@@ -1,3 +1,32 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" contentId="sidebar" menuId="sidebar" class="app-menu-container">
+    <ion-header mode="ios">
+      <ion-toolbar class="app-header-bg-color">
+        <ion-row>
+          <ion-col pull="3" push="3" size="6" no-padding>
+            <ion-title class="text-center" no-padding>
+              <img src="/assets/logo/logo.png" height="30" />
+            </ion-title>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="app-sidebar-content-container">
+      <ion-item no-padding lines="none" *ngFor="let obj of menuData"
+        [class]="obj && obj.isHeader ? 'app-item-heading-container mt-2' : 'app-item-container'">
+        <ion-button *ngIf="obj && !obj.isHeader" color="secondary" class="app-sidebar-button-container"
+          (click)="selectIndex(obj.index)">
+          <div class="app-sidebar-button-sub-container">
+            <img *ngIf="obj && obj.filePath" [src]="obj.filePath" height="50">
+            <ion-icon *ngIf="obj && obj.icon" [ios]="obj.icon" [md]="obj.icon"></ion-icon>
+            <ion-label class="font-8 pt-1">{{obj.label}}</ion-label>
+            <ion-icon *ngIf="obj && selectedIndex === obj.index" ios="md-play" md="md-play"
+              class="app-sidebar-active-button"></ion-icon>
+          </div>
+        </ion-button>
+        <ion-label *ngIf="obj && obj.isHeader" class="ion-padding-horizontal">{{obj.label}}</ion-label>
+      </ion-item>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="sidebar"></ion-router-outlet>
 </ion-app>

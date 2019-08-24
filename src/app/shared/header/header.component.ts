@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 declare var $;
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ declare var $;
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(public menu: MenuController) {
     this.init();
   }
 
@@ -18,6 +19,10 @@ export class HeaderComponent implements OnInit {
       $(this).toggleClass('active');
       event.stopPropagation();
     });
+  }
+
+  toggleBtn = () => {
+    this.menu.toggle('sidebar');
   }
 
 }

@@ -1,15 +1,87 @@
-.form-control:focus{
-    border-color: #cccccc;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color: #cccccc;
+.form-control:focus {
+  border-color: #cccccc;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #cccccc;
 }
-.border-none{
-    border: none;
+.border-none {
+  border: none;
 }
-.background-transparent{
-    background: transparent!important;
+.background-transparent {
+  background: transparent !important;
 }
-.curson-pointer{
-    cursor: pointer; 
+.curson-pointer {
+  cursor: pointer;
 }
+.m-0 {
+  margin: 0;
+}
+.mt-1 {
+  margin-top: 2rem;
+}
+.font-50 {
+  font-size: 50px !important;
+}
+.font-30 {
+  font-size: 30px !important;
+}
+.font-8 {
+  font-size: 8px !important;
+}
+.font-14 {
+  font-size: 14px;
+}
+.pt-1 {
+  padding-top: 1rem !important;
+}
+.w-100 {
+  width: 100%;
+}
+
+//Side Bar Start
+.app-sidebar-content-container {
+  background-color: var(--ion-color-primary);
+  --background: var(--ion-color-primary);
+}
+.app-item-container {
+  --background: var(--ion-color-primary);
+  --inner-padding-end: 0px;
+  --min-height: 6.5rem;
+}
+.app-item-heading-container {
+  --background: var(--ion-color-secondary);
+  --inner-padding-end: 0px;
+  --min-height: 2rem;
+  --color: #ffffff;
+}
+.app-sidebar-button-container {
+  width: 6rem;
+  height: 6rem;
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+}
+.app-sidebar-active-button {
+  position: absolute;
+  left: -4px;
+  font-size: 1rem;
+}
+.app-sidebar-button-sub-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.app-header-bg-color {
+  background-color: #444444;
+  color: #ffffff;
+  --background: var(--ion-color-primary);
+  --border-style: none;
+}
+.app-menu-container {
+  --max-width: 7rem;
+}
+//Side Bar End
