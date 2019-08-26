@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'search', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
+  { path: "", redirectTo: "root/tabs", pathMatch: "full" },
+  { path: "root", loadChildren: "./root/root.module#RootPageModule" }
 ];
 
 @NgModule({
@@ -13,4 +12,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

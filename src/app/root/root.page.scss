@@ -1,0 +1,45 @@
+.root-page-tab-bar-container {
+  --background: var(--ion-color-primary);
+  --color: #bbbbbb;
+  max-height: 40px;
+  min-height: 40px;
+  height: auto;
+  border-top: 3px #ffffff solid;
+}
+:host {
+  z-index: 0;
+  overflow: visible;
+}
+.root-page-tab-bar-button-container {
+  --color-selected: #ffffff;
+  margin-bottom: 20px;
+  height: auto;
+  background: transparent;
+}
+.root-page-tab-bar-icon {
+  font-size: 30px;
+}
+.root-page-tab-bar-home-icon {
+  font-size: 50px;
+  margin-bottom: 40px;
+  padding: 5px;
+}
+.root-page-tab-bar-btn-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  height: 70px;
+  border: 3px #ffffff solid;
+  border-radius: 50%;
+  background: var(--ion-color-primary);
+  z-index: -2;
+}
+.root-page-tab-bar-btn-sub-container {
+  position: absolute;
+  background: var(--ion-color-primary);
+  top: 30px;
+  bottom: 0;
+  width: 70px;
+  z-index: -1;
+}

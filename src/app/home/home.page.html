@@ -4,7 +4,7 @@
     <ion-grid [ngSwitch]="view_type">
         <ion-row>
             <ion-col size="12" no-padding>
-                <ion-item lines="none" no-padding class="home-page-list-item-container">
+                <ion-item mode="md" lines="none" no-padding class="home-page-list-item-container">
                     <ion-buttons slot="end">
                         <ion-button (click)="setViewType(GRID_VIEW)">
                             <ion-icon ios="md-apps" md="md-apps" [color]="view_type === GRID_VIEW ? 'light' : 'medium'">
@@ -27,7 +27,7 @@
                 <ion-slides pager="true" [options]="slideOpts" class="home-page-slider-container" #movieSlides
                     (ionSlideDidChange)="onMovieSlideChange($event)"
                     [ngStyle]="{ 'height': this.getSliderHeight()+'px' }">
-                    <ion-slide class="home-page-slide-container" *ngFor="let obj of images; index as i;">
+                    <ion-slide class="home-page-slide-container" *ngFor="let obj of images; index as i;" (click)="playVideo()">
                         <div
                             [class]="currentIndex === i ? 'home-page-active-img-container' : 'home-page-inactive-img-container'">
                             <img [src]="obj" class="home-page-movie-banner">
@@ -35,7 +35,7 @@
                                 <i class="fa fa-play-circle" aria-hidden="true"></i>
                             </div>
                             <div *ngIf="currentIndex === i" class="home-page-img-layer">
-                                <ion-item class="home-page-list-item-container home-page-movie-title">
+                                <ion-item mode="md" lines="none" class="home-page-list-item-container home-page-movie-title">
                                     <ion-label class="home-page-slide-text" no-padding>
                                         SAAHO
                                         <br>
@@ -48,7 +48,7 @@
                         </div>
                     </ion-slide>
                 </ion-slides>
-                <ion-item class="home-page-list-item-container">
+                <ion-item mode="md" lines="none" no-padding class="home-page-list-item-container">
                     <ion-label class="home-page-slide-text text-center">{{ currentIndex+1 }}/{{ images.length }}
                     </ion-label>
                 </ion-item>

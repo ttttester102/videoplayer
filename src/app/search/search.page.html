@@ -1,79 +1,76 @@
-<ion-content>
-
-  <ion-content class="search-page-content-container ion-padding-top">
-    <ion-grid [ngSwitch]="view_type">
-      <ion-row>
-        <ion-col size="12">
-          <ion-label color="light" class="font-30">Search</ion-label>
-          <ion-item no-padding lines="none" class="search-page-list-item-container search-page-input-container">
-            <ion-icon ios="ios-search" md="ios-search" color="light"></ion-icon>
-            <ion-input placeholder="Search..." no-padding autofocus="true" clearInput="true"></ion-input>
+<ion-content class="search-page-content-container ion-padding-top">
+  <ion-grid [ngSwitch]="view_type">
+    <ion-row>
+      <ion-col size="12">
+        <ion-label color="light" class="font-30">Search</ion-label>
+        <ion-item no-padding lines="none" class="search-page-list-item-container search-page-input-container">
+          <ion-icon ios="ios-search" md="ios-search" color="light"></ion-icon>
+          <ion-input placeholder="Search..." no-padding autofocus="true" clearInput="true"></ion-input>
+        </ion-item>
+        <div class="w-100 text-right">
+          <ion-label color="light" class="font-14">Results(34)</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngSwitchCase="LIST_VIEW" class="ion-padding-top">
+      <ion-col>
+        <ion-list lines="none" class="search-page-list-item-container">
+          <ion-item class="search-page-list-item-container ion-padding-bottom" no-padding>
+            <div class="search-page-label-wrapper">
+              <ion-label class="search-page-label">Recent Search</ion-label>
+              <div class="search-page-label-line"></div>
+            </div>
           </ion-item>
-          <div class="w-100 text-right">
-            <ion-label color="light" class="font-14">Results(34)</ion-label>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngSwitchCase="LIST_VIEW" class="ion-padding-top">
-        <ion-col>
-          <ion-list lines="none" class="search-page-list-item-container">
+          <ion-item class="search-page-list-item-container ion-padding-bottom" *ngFor="let obj of images;" no-padding>
+            <div class="search-page-list-item-img-container m-0" slot="start">
+              <img [src]="obj" class="search-page-list-item-img">
+              <div class="search-page-list-item-play-img-container">
+                <i class="fa fa-play-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="search-page-list-item-body-container ion-padding-start">
+              <ion-label>Lock Out</ion-label>
+              <ion-label text-wrap class="search-page-slide-sub-header-text">2012|1hour 94minutes|154
+              </ion-label>
+              <ion-chip class="search-page-chip-container ion-padding-horizontal" no-padding>
+                <ion-label color="primary">Thriller</ion-label>
+              </ion-chip>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngSwitchCase="GRID_VIEW" class="ion-padding-top">
+      <ion-col size="12" no-padding>
+        <ion-row>
+          <ion-col>
             <ion-item class="search-page-list-item-container ion-padding-bottom" no-padding>
               <div class="search-page-label-wrapper">
-                <ion-label class="search-page-label">Recent Search</ion-label>
+                <ion-label class="search-page-label">Videos</ion-label>
                 <div class="search-page-label-line"></div>
               </div>
             </ion-item>
-            <ion-item class="search-page-list-item-container ion-padding-bottom" *ngFor="let obj of images;" no-padding>
-              <div class="search-page-list-item-img-container m-0" slot="start">
-                <img [src]="obj" class="search-page-list-item-img">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col sizeXs="4" sizeMd="2" sizeSm="3" *ngFor="let obj of images;" no-padding>
+            <ion-card no-padding class="search-page-card-container">
+              <div class="search-page-card-img-container">
+                <img [src]="obj" class="search-page-card-img">
                 <div class="search-page-list-item-play-img-container">
                   <i class="fa fa-play-circle" aria-hidden="true"></i>
                 </div>
               </div>
-              <div class="search-page-list-item-body-container ion-padding-start">
-                <ion-label>Lock Out</ion-label>
-                <ion-label text-wrap class="search-page-slide-sub-header-text">2012|1hour 94minutes|154
-                </ion-label>
-                <ion-chip class="search-page-chip-container ion-padding-horizontal" no-padding>
-                  <ion-label color="primary">Thriller</ion-label>
-                </ion-chip>
-              </div>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-      </ion-row>
-
-      <ion-row *ngSwitchCase="GRID_VIEW" class="ion-padding-top">
-        <ion-col size="12" no-padding>
-          <ion-row>
-            <ion-col>
-              <ion-item class="search-page-list-item-container ion-padding-bottom" no-padding>
-                <div class="search-page-label-wrapper">
-                  <ion-label class="search-page-label">Videos</ion-label>
-                  <div class="search-page-label-line"></div>
-                </div>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col sizeXs="4" sizeMd="2" sizeSm="3" *ngFor="let obj of images;" no-padding>
-              <ion-card no-padding class="search-page-card-container">
-                <div class="search-page-card-img-container">
-                  <img [src]="obj" class="search-page-card-img">
-                  <div class="search-page-list-item-play-img-container">
-                    <i class="fa fa-play-circle" aria-hidden="true"></i>
-                  </div>
-                </div>
-                <ion-card-header no-padding>
-                  <ion-card-title color="light" class="search-page-card-title">Lock Out</ion-card-title>
-                  <ion-card-subtitle color="light" class="search-page-card-sub-title m-0">2012|1hour
-                    94minutes| 154</ion-card-subtitle>
-                </ion-card-header>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-content>
+              <ion-card-header no-padding>
+                <ion-card-title color="light" class="search-page-card-title">Lock Out</ion-card-title>
+                <ion-card-subtitle color="light" class="search-page-card-sub-title m-0">2012|1hour
+                  94minutes| 154</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

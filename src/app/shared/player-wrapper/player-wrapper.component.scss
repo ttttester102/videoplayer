@@ -1,0 +1,19 @@
+::ng-deep .progress {
+  height: auto !important;
+  background: transparent;
+}
+
+::ng-deep mat-seek-progress-control {
+  width: 100%;
+}
+.player-wrapper-video {
+  height: 100%;
+  width: 100%;
+}
+.player-wrapper-content-container {
+  --background: var(--ion-color-primary);
+}
+.player-wrapper-toolbar-container {
+  --background: var(--ion-color-primary);
+  --color: #ffffff;
+}

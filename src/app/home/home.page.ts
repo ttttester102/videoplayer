@@ -1,5 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
-import { Platform, IonSlides } from "@ionic/angular";
+import { Platform, IonSlides, ModalController } from "@ionic/angular";
+import { PlayerWrapperComponent } from "../shared/player-wrapper/player-wrapper.component";
 declare var $;
 
 @Component({
@@ -150,7 +151,7 @@ export class HomePage {
   public PLAIN_VIEW: string = "plain_view";
   public view_type: string = "";
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, public modalCtlrl: ModalController) {
     this.init();
   }
 
@@ -160,15 +161,24 @@ export class HomePage {
     this.setViewType(this.PLAIN_VIEW);
   };
 
-  getSliderHeight = () => this.screenHeight - 80 - 112;
+  getSliderHeight = () => this.screenHeight - 80 - 112 - 60;
 
   setViewType = (type: string) => {
     this.view_type = type;
-    this.currentIndex=0;
+    this.currentIndex = 0;
   };
 
   onMovieSlideChange = async e => {
     const index = await this.movieSlides.getActiveIndex();
     this.currentIndex = index ? index : 0;
+  };
+
+  playVideo = async () => {
+    console.log("clicked");
+    const modal = await this.modalCtlrl.create({
+      component: PlayerWrapperComponent
+    });
+
+    modal.present();
   };
 }

@@ -1,0 +1,25 @@
+<ion-header mode="ios" *ngIf="showHeader">
+  <ion-toolbar class="player-wrapper-toolbar-container">
+    <ion-row>
+      <ion-col size="3">
+        <ion-buttons no-padding>
+          <ion-button (click)="closeModal()">
+            <ion-icon ios="md-arrow-round-back" md="md-arrow-round-back" color="light"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col size="6">
+        <ion-title no-padding class="text-center">
+          <ion-label>Lock Out</ion-label>
+        </ion-title>
+      </ion-col>
+      <ion-col size="3">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="player-wrapper-content-container" (click)="_showHeader()">
+  <!-- <iframe src="https://drive.google.com/file/d/1Y6ebf9YBISSjv-w_RLbV-jxo1rfb7Vf7/preview"
+    class="player-wrapper-video"></iframe> -->
+  <mat-video src="https://drive.google.com/uc?export=download&id=1Y6ebf9YBISSjv-w_RLbV-jxo1rfb7Vf7"></mat-video>
+</ion-content>
